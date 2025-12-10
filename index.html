@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Earning Business Masterclass - Limited Offer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* --- GLOBAL STYLES --- */
+        :root {
+            --primary: #1e3a8a; /* Deep Royal Blue */
+            --secondary: #3b82f6; /* Bright Blue */
+            --accent: #f59e0b;  /* Gold/Orange */
+            --danger: #ef4444;  /* Red for Urgency */
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --white: #ffffff;
+        }
+
+        * { box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #334155;
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            margin-top: 0;
+            color: var(--dark);
+        }
+
+        a { text-decoration: none; }
+        
+        /* --- UTILITIES --- */
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        
+        /* --- TOP TIMER BAR --- */
+        .timer-bar {
+            background-color: var(--dark);
+            color: var(--white);
+            text-align: center;
+            padding: 10px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        #countdown { color: var(--accent); font-weight: 800; margin-left: 5px; }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.8)), url('https://images.unsplash.com/photo-1553877615-30c73a94124b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 120px 20px 80px;
+            text-align: center;
+            color: white;
+            clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            line-height: 1.2;
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .hero-sub {
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        /* --- BUTTONS --- */
+        .btn-main {
+            background: linear-gradient(to bottom, #f59e0b, #d97706);
+            color: white;
+            padding: 20px 40px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            border-radius: 50px;
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.4);
+            border: 2px solid #fff;
+            transition: all 0.3s;
+            display: inline-block;
+            text-transform: uppercase;
+            animation: pulse 2s infinite;
+            cursor: pointer;
+        }
+
+        .btn-main:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(245, 158, 11, 0.6);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* --- TRUST BADGES --- */
+        .trust-strip {
+            background: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-top: -30px;
+            position: relative;
+            z-index: 10;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 10px;
+        }
+        .trust-icons span { margin: 0 15px; font-weight: bold; opacity: 0.8; font-size: 1.1rem; }
+
+        /* --- GRID LAYOUTS --- */
+        .section { padding: 80px 0; }
+        .section-title { font-size: 2.2rem; text-align: center; margin-bottom: 50px; font-weight: 800; }
+        
+        .learning-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .learn-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            border-top: 4px solid var(--secondary);
+        }
+        .learn-card:hover { transform: translateY(-10px); }
+        .learn-card i { font-size: 40px; color: var(--secondary); margin-bottom: 20px; }
+        .learn-card h3 { font-size: 1.3rem; margin-bottom: 10px; }
+
+        /* --- OFFER SECTION (DARK) --- */
+        .offer-section {
+            background: var(--dark);
+            color: white;
+            padding: 80px 20px;
+        }
+
+        .offer-box {
+            background: white;
+            color: var(--dark);
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .offer-img {
+            flex: 1;
+            background: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') center/cover;
+            min-height: 300px;
+        }
+
+        .offer-content {
+            flex: 1;
+            padding: 40px;
+        }
+
+        .price-display {
+            background: #ecfdf5;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 2px dashed #10b981;
+            text-align: center;
+        }
+
+        .price-big { font-size: 3rem; font-weight: 800; color: #10b981; line-height: 1; }
+        .price-strike { text-decoration: line-through; color: #94a3b8; font-size: 1.5rem; }
+
+        /* --- REVIEWS SECTION --- */
+        .reviews-section {
+            background-color: white;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .review-card {
+            background: #f8fafc;
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .user-profile {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .user-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #cbd5e1;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #475569;
+        }
+
+        /* --- BONUS & FAQ --- */
+        .bonus-section { background: #fffbeb; border: 2px solid #fcd34d; padding: 20px; border-radius: 10px; margin-top: 20px; }
+        .bonus-tag { background: var(--danger); color: white; padding: 5px 10px; border-radius: 5px; font-size: 0.8rem; font-weight: bold; }
+
+        .faq-item { background: white; margin-bottom: 15px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); overflow: hidden; }
+        .faq-question { padding: 20px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; background: #f1f5f9; }
+        .faq-answer { padding: 20px; display: none; color: #64748b; }
+        
+        /* --- FOOTER --- */
+        footer { background: #0f172a; color: #94a3b8; text-align: center; padding: 40px 20px; margin-top: 50px; font-size: 0.9rem; }
+        footer a { color: #cbd5e1; transition: color 0.3s; }
+        footer a:hover { color: white; }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .offer-box { flex-direction: column; }
+            .offer-img { height: 250px; }
+            .trust-strip { display: none; } 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="timer-bar">
+        ⚠️ Warning: Offer Expiring in <span id="countdown">14:59</span> Minutes!
+    </div>
+
+    <div class="hero">
+        <div class="container">
+            <span style="background: rgba(255,255,255,0.2); padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: 600;">🚀 #1 Best Selling Guide 2024</span>
+            <h1>Stop Scrolling. <br><span style="color: #f59e0b;">Start Earning.</span></h1>
+            <p class="hero-sub">सिर्फ एक सही गाइड आपकी फाइनेंशियल स्थिति बदल सकती है। घर बैठे ₹30,000+ कमाने का स्टेप-बाय-स्टेप ब्लूप्रिंट।</p>
+            
+            <a href="#offer" class="btn-main">Get Access Now <i class="fas fa-arrow-right"></i></a>
+            
+            <p style="font-size: 0.8rem; margin-top: 15px; opacity: 0.8;">🔒 30-Day Money Back Guarantee</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="trust-strip">
+            <p style="margin: 0 0 10px 0; color: #64748b; font-size: 0.9rem;">TRUSTED PAYMENT PARTNERS</p>
+            <div class="trust-icons">
+                <span style="color:#1a1f71;">VISA</span>
+                <span style="color:#f79e1b;">MasterCard</span>
+                <span style="color:#10b981;">UPI/GPay</span>
+                <span style="color:#005698;">Paytm</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="section container">
+        <h2 class="section-title">क्या आप भी इन समस्याओं से जूझ रहे हैं?</h2>
+        <div class="learning-grid">
+            <div class="learn-card" style="border-top-color: #ef4444;">
+                <i class="fas fa-times-circle" style="color: #ef4444;"></i>
+                <h3>Low Salary?</h3>
+                <p>महीने के अंत में पैसे खत्म हो जाते हैं और समझ नहीं आता बचत कैसे करें?</p>
+            </div>
+            <div class="learn-card" style="border-top-color: #ef4444;">
+                <i class="fas fa-times-circle" style="color: #ef4444;"></i>
+                <h3>No Skills?</h3>
+                <p>लगता है कि ऑनलाइन पैसे कमाने के लिए बहुत टेक्निकल ज्ञान चाहिए?</p>
+            </div>
+            <div class="learn-card" style="border-top-color: #10b981;">
+                <i class="fas fa-check-circle" style="color: #10b981;"></i>
+                <h3>The Solution</h3>
+                <p>हमारा कोर्स आपको "Zero" से "Hero" बनाने के लिए डिज़ाइन किया गया है, हिंदी में।</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" style="background: #eef2ff;">
+        <div class="container">
+            <h2 class="section-title">📦 Course के अंदर क्या मिलेगा?</h2>
+            <div class="learning-grid">
+                <div class="learn-card">
+                    <i class="fas fa-laptop-house"></i>
+                    <h3>Affiliate Marketing</h3>
+                    <p>दूसरों के प्रोडक्ट बेचकर कमीशन कैसे कमाएं।</p>
+                </div>
+                <div class="learn-card">
+                    <i class="fas fa-hashtag"></i>
+                    <h3>Social Media Mastery</h3>
+                    <p>Instagram और Facebook से पैसे कमाने के सीक्रेट्स।</p>
+                </div>
+                <div class="learn-card">
+                    <i class="fas fa-bullhorn"></i>
+                    <h3>Freelancing 101</h3>
+                    <p>घर बैठे विदेशी क्लाइंट्स से डॉलर्स में पैसे कैसे लें।</p>
+                </div>
+                <div class="learn-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>AI Tools Guide</h3>
+                    <p>ChatGPT और AI का इस्तेमाल करके काम कैसे आसान करें।</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="offer-section" id="offer">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">🚀 Start Your Journey Today</h2>
+            
+            <div class="offer-box">
+                <div class="offer-img"></div>
+                <div class="offer-content">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 10px;">Online Earning Masterclass</h3>
+                    <p>Lifetime access to premium strategies.</p>
+                    
+                    <ul class="fa-ul" style="list-style: none; padding-left: 0;">
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color:green; margin-right:10px;"></i>Step-by-Step Video Guide</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color:green; margin-right:10px;"></i>Mobile Friendly</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color:green; margin-right:10px;"></i>Hindi Language</li>
+                    </ul>
+
+                    <div class="bonus-section">
+                        <span class="bonus-tag">FREE BONUS</span>
+                        <p style="margin: 5px 0 0 0; font-weight: 600; font-size: 0.9rem;">+ E-mail Marketing Templates (Worth ₹999)</p>
+                    </div>
+
+                    <div class="price-display">
+                        <span class="price-strike">₹1999</span>
+                        <br>
+                        <span class="price-big">₹499 Only</span>
+                    </div>
+
+                    <a href="https://trendydeals99.myinstamojo.com/product/online-earning-business/" class="btn-main" target="_blank" style="width: 100%; text-align: center; display:block; font-size: 1.2rem;">Buy Now (Secure Checkout)</a>
+                    
+                    <p style="text-align: center; font-size: 0.8rem; margin-top: 10px; color: #666;"><i class="fas fa-lock"></i> SSL Secured Payment</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section reviews-section container">
+        <h2 class="section-title">🎓 Student Success Stories</h2>
+        <div class="learning-grid">
+            <div class="review-card">
+                <div class="user-profile">
+                    <div class="user-avatar">RS</div>
+                    <div>
+                        <strong style="display:block;">Rahul Sharma</strong>
+                        <span style="font-size:0.8rem; color:#64748b;">Delhi, India</span>
+                    </div>
+                </div>
+                <div style="color: #f59e0b;">⭐⭐⭐⭐⭐</div>
+                <p style="font-style:italic; color:#475569;">"मैंने यह गाइड पिछले महीने ली थी। इसमें बताये गए तरीके बहुत आसान हैं। आज मैं पार्ट-टाइम काम करके ₹20,000 कमा रहा हूँ।"</p>
+            </div>
+            
+            <div class="review-card">
+                <div class="user-profile">
+                    <div class="user-avatar" style="background-color:#fca5a5; color:#7f1d1d;">PS</div>
+                    <div>
+                        <strong style="display:block;">Priya Singh</strong>
+                        <span style="font-size:0.8rem; color:#64748b;">Mumbai, India</span>
+                    </div>
+                </div>
+                <div style="color: #f59e0b;">⭐⭐⭐⭐⭐</div>
+                <p style="font-style:italic; color:#475569;">"Best investment for ₹499. कंटेंट बहुत ही सरल हिंदी भाषा में है। कोई भी इसे समझ सकता है। Highly Recommended!"</p>
+            </div>
+
+            <div class="review-card">
+                <div class="user-profile">
+                    <div class="user-avatar" style="background-color:#86efac; color:#14532d;">AK</div>
+                    <div>
+                        <strong style="display:block;">Amit Kumar</strong>
+                        <span style="font-size:0.8rem; color:#64748b;">Lucknow, India</span>
+                    </div>
+                </div>
+                <div style="color: #f59e0b;">⭐⭐⭐⭐⭐</div>
+                <p style="font-style:italic; color:#475569;">"मुझे यकीन नहीं था कि इंटरनेट से पैसे कमाना इतना आसान हो सकता है। Thank you TrendyDeals99 इस गाइड के लिए।"</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section container">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">क्या यह हिंदी में है? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-answer">जी हाँ, यह पूरा कोर्स बहुत ही सरल हिंदी भाषा में बनाया गया है।</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">पेमेंट के बाद कोर्स कैसे मिलेगा? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-answer">पेमेंट पूरा होते ही आपको डाउनलोड लिंक ईमेल पर और स्क्रीन पर तुरंत मिल जाएगा।</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">क्या मेरे पास लैपटॉप होना ज़रूरी है? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-answer">बिल्कुल नहीं! आप इन तरीकों को अपने स्मार्टफ़ोन से भी इस्तेमाल कर सकते हैं।</div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <h3>Trendy Deals 99</h3>
+            <p>Helping 5000+ Students become independent.</p>
+            <p style="font-size: 0.8rem; color: #64748b;">Support: chatneoai@gmail.com</p>
+            <hr style="border-color: #334155; margin: 20px 0;">
+            <p>&copy; 2024 All Rights Reserved. | <a href="terms.html" target="_blank">Terms & Conditions</a> | <a href="privacy.html" target="_blank">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Countdown
+        let time = 900; 
+        const countdownEl = document.getElementById('countdown');
+        setInterval(function() {
+            const minutes = Math.floor(time / 60);
+            let seconds = time % 60;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+            countdownEl.innerHTML = `${minutes}:${seconds}`;
+            time > 0 ? time-- : time = 900;
+        }, 1000);
+
+        // FAQ Toggle
+        function toggleFaq(element) {
+            const answer = element.nextElementSibling;
+            answer.style.display = (answer.style.display === "block") ? "none" : "block";
+        }
+    </script>
+</body>
+</html>
